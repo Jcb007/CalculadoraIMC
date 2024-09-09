@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Resultado del Cálculo</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado del Cálculo</h1>
+        <p>Nombre: {{ name }}</p>
+        <p>Edad: {{ age }}</p>
+        <p>Peso: {{ weight }} kg</p>
+        <p>Estatura: {{ height }} cm</p>
+        <p>IMC: {{ bmi }} - <strong class="{{ category }}">{{ category }}</strong></p>
+
+        <div class="progress-bar">
+            <div class="progress" style="background-color: {{ color }}">{{ category }}</div>
+        </div>
+
+        <h2>Recomendaciones:</h2>
+        <p>{{ recommendation | safe }}</p>
+
+        <!-- Tabla con estados y rangos de IMC -->
+        <h2>Referencias de IMC</h2>
+        <table class="reference-table">
+            <tr>
+                <th>Estado</th>
+                <th>Rango de IMC</th>
+            </tr>
+            <tr class="healthy">
+                <td>Peso saludable</td>
+                <td>18.5 - 24.9</td>
+            </tr>
+            <tr class="underweight">
+                <td>Peso bajo</td>
+                <td>Menos de 18.5</td>
+            </tr>
+            <tr class="overweight">
+                <td>Sobrepeso</td>
+                <td>25.0 - 29.9</td>
+            </tr>
+            <tr class="obese">
+                <td>Obesidad</td>
+                <td>30.0 o más</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
